@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        canvas {
+            margin:auto;
+            background:black;
+        }
+        body {
+            background:#333;
+            color:white;
+            text-align: center;
+        }
+        #ajaxdiv {
+            position:absolute;
+            right: 10px;
+            top: 10px;
+            width: 130px;
+            border: 1px solid red;
+        }
+
+        #pisteet > div:nth-child(2n+1) {
+            background: #ccc;
+            color: black;
+        }
+        #pisteet > div:nth-child(2n+2) {
+            background: #000;
+        }
+
+        .pistediv {
+            padding: 0px 5px 0px 5px;
+        }
+
+        .user, .score {
+            display: inline-block;
+            width: 50%;
+        }
+        .user {
+            text-align:left;            
+        }
+        .score {
+            text-align: right;
+        }
+
+        #formdiv {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            margin: auto;
+            text-align:center;
+            display: none;
+        }
+        #innerdiv {
+            width: 600px;
+            margin: auto;
+            padding: 10px;
+            background: #005;
+            border-radius: 4px;
+            box-shadow: 2px 2px 4px white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1"></canvas>  
+    <p>
+        Ohjaa pukkia nuolinäppäimillä. Tiputa lahjoja taloihin spacesta. Jos pukki ohittaa 10 taloa antamatta lahjaa, joulu on pilalla. Pukki ei myöskään saa osua itse taloihin, koska kuolee ja joulu on pilalla.
+    </p>  
+    <div id="ajaxdiv">
+        <div style="background:green">TOP 10 pisteet</div>
+        <div id="pisteet">
+        </div>
+    </div>
+    <div id="formdiv">
+        <div id="innerdiv">
+            <div id="scoreform">
+                Sait <span id="showscore"></span> pistettä. Hyvä! Syötä tulokesi (max 3 merkkiä, ei ääkkösiä):<br />
+                <input type="text" placeholder="AAA" value="" name="user" size="3" id="username"/>
+                <input type="hidden" value="add" name="action" />                
+                <input type="submit" value="Lähetä" id="submitscore"/>
+                <input type="button" value="Peruuta" onclick="location.reload()" />
+            </div>
+        </div>
+    </div>
+    <script src="assets.js"></script>
+    <script src="canvas.js"></script>
+    <script src="game.js"></script>
+    <script src="scores.js"></script>
+</body>
+</html>
